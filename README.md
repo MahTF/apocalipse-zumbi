@@ -8,6 +8,7 @@ Você é um dos últimos sobreviventes em um mundo pós apocaliptico apocalípti
 #### Diário
 - Dia 1: Neste dia foi criado o cenário e personagem utilizando as artes disponibilizadas pela Alura, também foi adicionado a movimentação da personagem
 - Dia 2: Foi adicionado animações a personagem e as colisões utilizando física
+- Dia 3: Foi criada as mecanicas dos inimigos (os zumbis) e a mecanica de atirar da personagem principal.
 
 
 
