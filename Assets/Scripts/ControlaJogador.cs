@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 public class ControlaJogador : MonoBehaviour
 {
     public int Velocidade = 10;
-    Vector3 direcao;
+    private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject TextoGameOver;
     public bool Vivo;
+    private Rigidbody rigidbodyJogador;
+    private Animator animatorJogador;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         Vivo = true;
+        rigidbodyJogador = GetComponent<Rigidbody>();
+        animatorJogador = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,14 +34,14 @@ public class ControlaJogador : MonoBehaviour
 
         if (direcao != Vector3.zero)
         {
-            GetComponent<Animator>().SetBool("Movendo", true);
+            animatorJogador.SetBool("Movendo", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("Movendo", false);
+            animatorJogador.SetBool("Movendo", false);
         }
 
-        if(Vivo == false)
+        if (Vivo == false)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -48,7 +52,7 @@ public class ControlaJogador : MonoBehaviour
 
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (direcao * Velocidade * Time.deltaTime));
+        rigidbodyJogador.MovePosition(rigidbodyJogador.position + (direcao * Velocidade * Time.deltaTime));
 
         //Raio pra saber onde o mouse está apontando.
         Ray raio = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -62,7 +66,7 @@ public class ControlaJogador : MonoBehaviour
             posicaoMiraJogador.y = transform.position.y;
 
             Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador);
-            GetComponent<Rigidbody>().MoveRotation(novaRotacao);
+            rigidbodyJogador.MoveRotation(novaRotacao);
         }
     }
 }

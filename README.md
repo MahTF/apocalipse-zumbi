@@ -10,6 +10,7 @@ Você é um dos últimos sobreviventes em um mundo pós apocaliptico apocalípti
 - Dia 2: Foi adicionado animações a personagem e as colisões utilizando física
 - Dia 3: Foi criada as mecanicas dos inimigos (os zumbis) e a mecanica de atirar da personagem principal.
 - Dia 4: Foi criado a rotação do player, eliminação de zumbis, tela de game over e reinicio de jogo.
+- Dia 5: Foi criado o gerador de zumbis e a finalização do cenário.
 
 
 

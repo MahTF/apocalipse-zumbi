@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControlaCamera : MonoBehaviour
 {
     public GameObject Jogador;
-    Vector3 distanciaCompensar;
+    private Vector3 distanciaCompensar;
     // Start is called before the first frame update
     void Start()
     {
