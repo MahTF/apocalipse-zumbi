@@ -4,6 +4,10 @@ Este jogo está em desenvolvimento através de um curso ministrado pela Alura.
 ## Objetivo do jogo
 Você é um dos últimos sobreviventes em um mundo pós apocaliptico apocalíptico, você precisa aprender a sobreviver neste mundo.
 
+#### Como jogar?
+Você pode baixar o projeto por aqui ou rodar uma versão dele online [clicando aqui](https://mahtf.itch.io/apocalipse-zumbi), a senha para acesso é `Marcelo`
+Neste jogo, você é o jogador principal onde se encontra num estacionamento de hotel tentando eliminar o maior número de inimigos que consegui que vão surgindo pelo mapa. Sinta-se a vontade para compartilhar suas opiniões. 
+
 
 #### Diário
 - Dia 1: Neste dia foi criado o cenário e personagem utilizando as artes disponibilizadas pela Alura, também foi adicionado a movimentação da personagem
