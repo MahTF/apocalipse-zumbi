@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class ControlaJogador : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ControlaJogador : MonoBehaviour
     private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject TextoGameOver;
-    public bool Vivo;
+    public int Vida;
+    public ControlaInterface ScriptControlaInterface;
     private Rigidbody rigidbodyJogador;
     private Animator animatorJogador;
 
@@ -17,7 +19,7 @@ public class ControlaJogador : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        Vivo = true;
+        Vida = 100;
         rigidbodyJogador = GetComponent<Rigidbody>();
         animatorJogador = GetComponent<Animator>();
     }
@@ -41,7 +43,7 @@ public class ControlaJogador : MonoBehaviour
             animatorJogador.SetBool("Movendo", false);
         }
 
-        if (Vivo == false)
+        if (Vida <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -67,6 +69,18 @@ public class ControlaJogador : MonoBehaviour
 
             Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador);
             rigidbodyJogador.MoveRotation(novaRotacao);
+        }
+    }
+
+    public void TomarDano(int dano)
+    {
+        Vida -= dano;
+        ScriptControlaInterface.AtualizarSliderVidaJogador();
+
+        if(Vida <= 0)
+        {
+            Time.timeScale = 0;
+            TextoGameOver.SetActive(true);
         }
     }
 }
