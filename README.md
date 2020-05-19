@@ -19,7 +19,7 @@ _**A versão jogavel é a realizada até o dia 5 no diário abaixo.**_
 - Dia 4: Foi criado a rotação do player, eliminação de zumbis, tela de game over e reinicio de jogo.
 - Dia 5: Foi criado o gerador de zumbis e a finalização do cenário.
 - Dia 6: Melhorado a vida do jogador e criado um componente visual para exibir a vida do jogador em tela. (_Utilizando cinza ao invés de vermelho para não confundir pessoas daltônicas._)
-- Dia 7: Foi adicionado áudio ao jogo.
+- Dia 7: Foi adicionado áudio ao jogo, aumentado o cenário e iluminação.
 
 
 
