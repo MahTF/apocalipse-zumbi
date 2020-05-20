@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 
-public class ControlaJogador : MonoBehaviour
+public class ControlaJogador : MonoBehaviour, IMatavel
 {
-    public int Velocidade = 10;
+    
     private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject TextoGameOver;
-    public int Vida;
     public ControlaInterface ScriptControlaInterface;
     public AudioClip SomDano;
+    public Status statusJogador;
     private AnimacaoPersonagem animacaoJogador;
     private MovimentoJogador movimentoJogador;
 
@@ -20,9 +20,9 @@ public class ControlaJogador : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        Vida = 100;
         movimentoJogador = GetComponent<MovimentoJogador>();
         animacaoJogador = GetComponent<AnimacaoPersonagem>();
+        statusJogador = GetComponent<Status>();
     }
 
     // Update is called once per frame
@@ -34,9 +34,8 @@ public class ControlaJogador : MonoBehaviour
         direcao = new Vector3(eixoX, 0, eixoZ);
 
         animacaoJogador.Movimentar(direcao.magnitude);
-        Debug.Log(direcao.magnitude);
 
-        if (Vida <= 0)
+        if (statusJogador.Vida <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -47,21 +46,26 @@ public class ControlaJogador : MonoBehaviour
 
     void FixedUpdate()
     {
-        movimentoJogador.Movimentar(direcao, Velocidade);
+        movimentoJogador.Movimentar(direcao, statusJogador.Velocidade);
 
         movimentoJogador.RotacaoJogador(MascaraChao);
     }
 
     public void TomarDano(int dano)
     {
-        Vida -= dano;
+        statusJogador.Vida -= dano;
         ScriptControlaInterface.AtualizarSliderVidaJogador();
         ControlaAudio.Instancia.PlayOneShot(SomDano);
 
-        if(Vida <= 0)
+        if(statusJogador.Vida <= 0)
         {
-            Time.timeScale = 0;
-            TextoGameOver.SetActive(true);
+            Morrer();
         }
+    }
+
+    public void Morrer() 
+    {
+        Time.timeScale = 0;
+        TextoGameOver.SetActive(true);
     }
 }

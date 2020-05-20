@@ -13,9 +13,4 @@ public class ControlaAudio : MonoBehaviour
         Instancia = fonteAudio;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

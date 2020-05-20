@@ -20,10 +20,9 @@ public class Bala : MonoBehaviour
 
     void OnTriggerEnter(Collider objetoColisao)
     {
-        if(objetoColisao.tag == "Inimigo")
+        if(objetoColisao.CompareTag("Inimigo"))
         {
-            Destroy(objetoColisao.gameObject);
-            ControlaAudio.Instancia.PlayOneShot(SomMorteZumbi);
+            objetoColisao.GetComponent<ControlaInimigo>().TomarDano(1);
         }
 
         Destroy(gameObject);

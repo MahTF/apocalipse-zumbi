@@ -13,14 +13,14 @@ _**A versão jogavel é a realizada até o dia 5 no diário abaixo.**_
 
 
 #### Diário
-- Dia 1: Neste dia foi criado o cenário e personagem utilizando as artes disponibilizadas pela Alura, também foi adicionado a movimentação da personagem
-- Dia 2: Foi adicionado animações a personagem e as colisões utilizando física
+- Dia 1: Neste dia foi criado o cenário e personagem utilizando as artes disponibilizadas pela Alura, também foi adicionado a movimentação da personagem.
+- Dia 2: Foi adicionado animações a personagem e as colisões utilizando física.
 - Dia 3: Foi criada as mecanicas dos inimigos (os zumbis) e a mecanica de atirar da personagem principal.
 - Dia 4: Foi criado a rotação do player, eliminação de zumbis, tela de game over e reinicio de jogo.
 - Dia 5: Foi criado o gerador de zumbis e a finalização do cenário.
 - Dia 6: Melhorado a vida do jogador e criado um componente visual para exibir a vida do jogador em tela. (_Utilizando cinza ao invés de vermelho para não confundir pessoas daltônicas._)
 - Dia 7: Foi adicionado áudio ao jogo, aumentado o cenário e iluminação.
-- Dia 8: Refatoração do código de Jogador e Zumbis
+- Dia 8: Refatoração do código de Jogador e Zumbis, criado status para os personagens.
 
 
 
