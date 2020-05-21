@@ -21,6 +21,7 @@ _**A versão jogavel é a realizada até o dia 5 no diário abaixo.**_
 - Dia 6: Melhorado a vida do jogador e criado um componente visual para exibir a vida do jogador em tela. (_Utilizando cinza ao invés de vermelho para não confundir pessoas daltônicas._)
 - Dia 7: Foi adicionado áudio ao jogo, aumentado o cenário e iluminação.
 - Dia 8: Refatoração do código de Jogador e Zumbis, criado status para os personagens.
+- Dia 9: Melhorando o código dos Zumbis e geradores de zumbis.
 
 
 

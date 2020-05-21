@@ -9,7 +9,7 @@ public class ControlaInterface : MonoBehaviour
     private ControlaJogador scriptControlaJogador;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         scriptControlaJogador = GameObject.FindWithTag("Player").GetComponent<ControlaJogador>();
 

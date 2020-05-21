@@ -9,7 +9,7 @@ public class Status : MonoBehaviour
     [HideInInspector]
     public int Vida;
 
-    void Start()
+    void Awake()
     {
         Vida = VidaInicial;
     }

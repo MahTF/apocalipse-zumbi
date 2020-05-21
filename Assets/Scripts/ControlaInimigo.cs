@@ -9,12 +9,16 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private Status statusZumbi;
     private MovimentoPersonagem movimentoInimigo;
     private AnimacaoPersonagem animacaoInimigo;
+    private Vector3 posicaoAleatoria;
+    private Vector3 direcao;
+    private float contadorVagar;
+    private float tempoGerarProxima = 4;
 
     // Start is called before the first frame update
     void Start()
     {
         Jogador = GameObject.FindWithTag("Player");
-        
+
         movimentoInimigo = GetComponent<MovimentoPersonagem>();
         animacaoInimigo = GetComponent<AnimacaoPersonagem>();
         statusZumbi = GetComponent<Status>();
@@ -24,13 +28,20 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 
     void FixedUpdate()
     {
-        Vector3 direcao = Jogador.transform.position - transform.position;
+
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
         movimentoInimigo.Rotacionar(direcao);
 
-        if (distancia > 2.5)
+        animacaoInimigo.Movimentar(direcao.magnitude);
+
+        if (distancia > 15)
         {
+            Vagar();
+        }
+        else if (distancia > 2.5)
+        {
+            direcao = Jogador.transform.position - transform.position;
             movimentoInimigo.Movimentar(direcao, statusZumbi.Velocidade);
 
             animacaoInimigo.Atacar(false);
@@ -45,7 +56,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 
     void AtacaJogador()
     {
-        int dano = Random.Range(20,31);
+        int dano = Random.Range(20, 31);
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
 
@@ -59,7 +70,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         statusZumbi.Vida -= dano;
 
-        if (statusZumbi.Vida <=0)
+        if (statusZumbi.Vida <= 0)
         {
             Morrer();
         }
@@ -69,5 +80,32 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         Destroy(gameObject);
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
+    }
+
+    private void Vagar()
+    {
+        contadorVagar -= Time.deltaTime;
+
+        if (contadorVagar <= 0) 
+        {
+            posicaoAleatoria = AleatorizarPosicao();
+            contadorVagar += tempoGerarProxima;
+        }
+
+        bool pertoSuficiente = Vector3.Distance(transform.position, posicaoAleatoria) <= 0.05f;
+        if (pertoSuficiente == false)
+        {
+            direcao = posicaoAleatoria - transform.position;
+            movimentoInimigo.Movimentar(direcao, statusZumbi.Velocidade);
+        }
+
+    }
+
+    private Vector3 AleatorizarPosicao()
+    {
+        Vector3 posicao = Random.insideUnitSphere * 10;
+        posicao += transform.position;
+        posicao.y = 0;
+        return posicao;
     }
 }
