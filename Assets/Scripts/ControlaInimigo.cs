@@ -48,6 +48,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         }
         else
         {
+            direcao = Jogador.transform.position - transform.position;
             //Atacar
             animacaoInimigo.Atacar(true);
         }

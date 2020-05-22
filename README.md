@@ -9,7 +9,7 @@ Você pode baixar o projeto por aqui ou rodar uma versão dele online [clicando 
 
 Neste jogo, você é o jogador principal onde se encontra num estacionamento de hotel tentando eliminar o maior número de inimigos que consegui que vão surgindo pelo mapa. Sinta-se a vontade para compartilhar suas opiniões. 
 
-_**A versão jogavel é a realizada até o dia 5 no diário abaixo.**_
+_**A versão jogavel é a realizada até o dia 10 no diário abaixo.**_
 
 
 #### Diário
@@ -22,6 +22,7 @@ _**A versão jogavel é a realizada até o dia 5 no diário abaixo.**_
 - Dia 7: Foi adicionado áudio ao jogo, aumentado o cenário e iluminação.
 - Dia 8: Refatoração do código de Jogador e Zumbis, criado status para os personagens.
 - Dia 9: Melhorando o código dos Zumbis e geradores de zumbis.
+- Dia 10: Melhorado a tela de game over, corrigido um bug nos zumbis, upado o jogo novamente no itch.io.
 
 
 
