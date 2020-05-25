@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ControlaJogador : MonoBehaviour, IMatavel
+public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 {
     
     private Vector3 direcao;
@@ -58,5 +58,16 @@ public class ControlaJogador : MonoBehaviour, IMatavel
     {
         Time.timeScale = 0;
         ScriptControlaInterface.GameOver();
+    }
+
+    public void CurarVida(int quantidadeCura)
+    {
+        statusJogador.Vida += quantidadeCura;
+        if(statusJogador.Vida > statusJogador.VidaInicial)
+        {
+            statusJogador.Vida = statusJogador.VidaInicial;
+        }
+
+        ScriptControlaInterface.AtualizarSliderVidaJogador();
     }
 }

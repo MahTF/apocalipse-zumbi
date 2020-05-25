@@ -6,6 +6,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 {
     public GameObject Jogador;
     public AudioClip SomMorte;
+    public GameObject KitMedico;
     private Status statusZumbi;
     private MovimentoPersonagem movimentoInimigo;
     private AnimacaoPersonagem animacaoInimigo;
@@ -13,6 +14,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private Vector3 direcao;
     private float contadorVagar;
     private float tempoGerarProxima = 4;
+    private float porcentagemGerarKitMedico = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +83,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         Destroy(gameObject);
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
+        VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
     }
 
     private void Vagar()
@@ -108,5 +111,13 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         posicao += transform.position;
         posicao.y = 0;
         return posicao;
+    }
+
+    void VerificarGeracaoKitMedico(float porcentagemGeracao)
+    {
+        if(Random.value <= porcentagemGeracao)
+        {
+            Instantiate(KitMedico, transform.position, Quaternion.identity);
+        }
     }
 }
