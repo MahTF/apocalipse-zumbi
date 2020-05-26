@@ -7,6 +7,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     public GameObject Jogador;
     public AudioClip SomMorte;
     public GameObject KitMedico;
+    protected ControlaInterface scriptControlaInterface;
     private Status statusZumbi;
     private MovimentoPersonagem movimentoInimigo;
     private AnimacaoPersonagem animacaoInimigo;
@@ -25,6 +26,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         animacaoInimigo = GetComponent<AnimacaoPersonagem>();
         statusZumbi = GetComponent<Status>();
         AleatorizarZumbi();
+        scriptControlaInterface = GameObject.FindObjectOfType(typeof(ControlaInterface)) as ControlaInterface;
     }
 
 
@@ -84,6 +86,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         Destroy(gameObject);
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
+        scriptControlaInterface.AtualizarQtZumbiMortos();
     }
 
     private void Vagar()

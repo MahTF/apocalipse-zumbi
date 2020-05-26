@@ -11,8 +11,10 @@ public class ControlaInterface : MonoBehaviour
     public GameObject PainelGameOver;
     public Text TextoTempoSobrevivencia;
     public Text TextoTempoMaximoSobrevivencia;
+    public Text TextoQtZumbiMortos;
     private float tempoPontuacaoSalvo;
     private ControlaJogador scriptControlaJogador;
+    private int qtZumbiMortos;
 
     // Start is called before the first frame update
     void Start()
@@ -87,5 +89,17 @@ public class ControlaInterface : MonoBehaviour
     {
         SceneManager.LoadScene("game");
         Time.timeScale = 1;
+    }
+
+    public void AtualizarQtZumbiMortos()
+    {
+        qtZumbiMortos++;
+        AtualizarScore();
+    }
+
+    private void AtualizarScore()
+    {
+        TextoQtZumbiMortos.gameObject.SetActive(true);
+        TextoQtZumbiMortos.text = string.Format("x {0}", qtZumbiMortos.ToString());
     }
 }

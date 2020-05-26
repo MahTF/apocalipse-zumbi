@@ -24,6 +24,7 @@ _**A versão jogavel é a realizada até o dia 11 no diário abaixo.**_
 - Dia 9: Melhorando o código dos Zumbis e geradores de zumbis.
 - Dia 10: Melhorado a tela de game over, corrigido um bug nos zumbis, upado o jogo novamente no [itch.io](https://mahtf.itch.io/apocalipse-zumbi).
 - Dia 11: Foi criado os Kit médicos para recuperar a vida do jogador. 
+- Dia 12: Foi adicionado o contador de zumbi na interface e alterado o ponteiro do mouse.
 
 
 
