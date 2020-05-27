@@ -85,7 +85,10 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 
     public void Morrer()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 2);
+        animacaoInimigo.Morrer();
+        movimentoInimigo.Morrer();
+        this.enabled = false;
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
         scriptControlaInterface.AtualizarQtZumbiMortos();
@@ -99,7 +102,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         if (contadorVagar <= 0) 
         {
             posicaoAleatoria = AleatorizarPosicao();
-            contadorVagar += tempoGerarProxima;
+            contadorVagar += tempoGerarProxima + Random.Range(-1f, 1f);
         }
 
         bool pertoSuficiente = Vector3.Distance(transform.position, posicaoAleatoria) <= 0.05f;
