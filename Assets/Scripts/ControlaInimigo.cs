@@ -7,6 +7,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     public GameObject Jogador;
     public AudioClip SomMorte;
     public GameObject KitMedico;
+    [HideInInspector]
+    public GeradorZumbi meuGerador;
     protected ControlaInterface scriptControlaInterface;
     private Status statusZumbi;
     private MovimentoPersonagem movimentoInimigo;
@@ -87,6 +89,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
         scriptControlaInterface.AtualizarQtZumbiMortos();
+        meuGerador.DiminuirQtZumbiVivos();
     }
 
     private void Vagar()

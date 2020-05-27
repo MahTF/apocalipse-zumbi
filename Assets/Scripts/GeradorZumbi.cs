@@ -11,15 +11,22 @@ public class GeradorZumbi : MonoBehaviour
     private float distanciaGeracao = 3;
     private float distanciaJogadorGeracao = 20;
     private GameObject jogador;
+    private int qtMaxZumbiVivos = 3;
+    private int qtZumbiVivosAtual;
+    private float tempoProximoAumentoDificuldade = 15;
+    private float contadorAumentarDificuldade;
 
     private void Start()
     {
         jogador = GameObject.FindWithTag("Player");
+        contadorAumentarDificuldade = tempoProximoAumentoDificuldade;
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, jogador.transform.position) > distanciaJogadorGeracao)
+        bool gerarZumbisDistancia = Vector3.Distance(transform.position, jogador.transform.position) > distanciaJogadorGeracao;
+
+        if (gerarZumbisDistancia && qtZumbiVivosAtual <= qtMaxZumbiVivos)
         {
             contadorTempo += Time.deltaTime;
             if (contadorTempo >= TempoGerarZumbi)
@@ -27,6 +34,12 @@ public class GeradorZumbi : MonoBehaviour
                 StartCoroutine(GerarNovoZumbi());
                 contadorTempo = 0;
             }
+        }
+
+        if(Time.timeSinceLevelLoad > contadorAumentarDificuldade )
+        {
+            qtMaxZumbiVivos++;
+            contadorAumentarDificuldade = Time.timeSinceLevelLoad + tempoProximoAumentoDificuldade;
         }
     }
 
@@ -41,7 +54,9 @@ public class GeradorZumbi : MonoBehaviour
             colisores = Physics.OverlapSphere(posicaoCriacao, 1, LayerZumbi);
             yield return null;
         }
-        Instantiate(Zumbi, posicaoCriacao, transform.rotation);
+        ControlaInimigo zumbi = Instantiate(Zumbi, posicaoCriacao, transform.rotation).GetComponent<ControlaInimigo>();
+        zumbi.meuGerador = this;
+        qtZumbiVivosAtual++;
     }
 
     private void OnDrawGizmos()
@@ -56,5 +71,10 @@ public class GeradorZumbi : MonoBehaviour
         posicao += transform.position;
         posicao.y = 0;
         return posicao;
+    }
+
+    public void DiminuirQtZumbiVivos()
+    {
+        qtZumbiVivosAtual--;
     }
 }
