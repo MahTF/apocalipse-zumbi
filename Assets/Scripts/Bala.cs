@@ -11,8 +11,9 @@ public class Bala : MonoBehaviour
     void Start()
     {
         rigidbodyBala = GetComponent<Rigidbody>();
+        Destroy(gameObject, 15); //Caso a bala não bata em nada, ela é destroida após 15 segundos.
     }
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         rigidbodyBala.MovePosition(rigidbodyBala.position + transform.forward * Velocidade * Time.deltaTime);
@@ -20,9 +21,15 @@ public class Bala : MonoBehaviour
 
     void OnTriggerEnter(Collider objetoColisao)
     {
-        if(objetoColisao.CompareTag("Inimigo"))
+        switch (objetoColisao.tag)
         {
-            objetoColisao.GetComponent<ControlaInimigo>().TomarDano(1);
+            case "Inimigo":
+                objetoColisao.GetComponent<ControlaInimigo>().TomarDano(1);
+                break;
+
+            case "ChefeFase":
+                objetoColisao.GetComponent<ControlaChefe>().TomarDano(1);
+                break;
         }
 
         Destroy(gameObject);

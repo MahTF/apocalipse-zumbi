@@ -9,7 +9,7 @@ Você pode baixar o projeto por aqui ou rodar uma versão dele online [clicando 
 
 Neste jogo, você é o jogador principal onde se encontra num estacionamento de hotel tentando eliminar o maior número de inimigos que consegui que vão surgindo pelo mapa. Sinta-se a vontade para compartilhar suas opiniões. 
 
-_**A versão jogavel é a realizada até o dia 13 no diário abaixo.**_
+_**A versão jogavel é a realizada até o dia 14 no diário abaixo.**_
 
 
 #### Diário
@@ -26,7 +26,7 @@ _**A versão jogavel é a realizada até o dia 13 no diário abaixo.**_
 - Dia 11: Foi criado os Kit médicos para recuperar a vida do jogador. 
 - Dia 12: Foi adicionado o contador de zumbi na interface e alterado o ponteiro do mouse.
 - Dia 13: Efetuado melhorias no código do gerador de zumbis. Melhorado também o código dos zumbis.
-
+- Dia 14: Criado um chefe da fase.
 
 
 *Marcelo T. Ferreira*
