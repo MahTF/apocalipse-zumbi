@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class ControlaChefe : MonoBehaviour, IMatavel
 {
     public AudioClip SomMorte;
+    public GameObject KitMedico;
     private Transform jogador;
     private NavMeshAgent agente;
     private Status statusChefe;
@@ -20,6 +21,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel
         animacao = GetComponent<AnimacaoPersonagem>();
         movimento = GetComponent<MovimentoPersonagem>();
         agente.speed = statusChefe.Velocidade;
+        AleatorizarChefe();
     }
 
     private void Update()
@@ -66,10 +68,12 @@ public class ControlaChefe : MonoBehaviour, IMatavel
         this.enabled = false;
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
         Destroy(gameObject, 2);
+        Instantiate(KitMedico, transform.position, Quaternion.identity);
+    }
 
-        /*
-        VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
-        scriptControlaInterface.AtualizarQtZumbiMortos();
-        meuGerador.DiminuirQtZumbiVivos();*/
+    private void AleatorizarChefe()
+    {
+        int gerarTipoZumbi = Random.Range(1, transform.childCount); 
+        transform.GetChild(gerarTipoZumbi).gameObject.SetActive(true);
     }
 }

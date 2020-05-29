@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SomMorte: {fileID: 8300000, guid: 0b6ff5e6c35053a489e8094bab92c1e3, type: 3}
+  KitMedico: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
 --- !u!195 &45789133917269248
 NavMeshAgent:
   m_ObjectHideFlags: 0
