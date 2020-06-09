@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class ControlaChefe : MonoBehaviour, IMatavel
 {
     public AudioClip SomMorte;
     public GameObject KitMedico;
+    public Slider SliderVidaChefe;
+    public Image ImagemSlider;
+    public Color CorVidaMaxima, CorVidaMinima;
     private Transform jogador;
     private NavMeshAgent agente;
     private Status statusChefe;
@@ -22,6 +26,8 @@ public class ControlaChefe : MonoBehaviour, IMatavel
         movimento = GetComponent<MovimentoPersonagem>();
         agente.speed = statusChefe.Velocidade;
         AleatorizarChefe();
+        SliderVidaChefe.maxValue = statusChefe.VidaInicial;
+        AtualizarInterface();
     }
 
     private void Update()
@@ -54,6 +60,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel
     public void TomarDano(int dano)
     {
         statusChefe.Vida -= dano;
+        AtualizarInterface();
         if(statusChefe.Vida <= 0)
         {
             Morrer();
@@ -75,5 +82,13 @@ public class ControlaChefe : MonoBehaviour, IMatavel
     {
         int gerarTipoZumbi = Random.Range(1, transform.childCount); 
         transform.GetChild(gerarTipoZumbi).gameObject.SetActive(true);
+    }
+
+    private void AtualizarInterface()
+    {
+        SliderVidaChefe.value = statusChefe.Vida;
+        float porcentagemVida = (float)statusChefe.Vida / statusChefe.VidaInicial;
+        Color corVida = Color.Lerp(CorVidaMinima, CorVidaMaxima, porcentagemVida);
+        ImagemSlider.color = corVida;
     }
 }
