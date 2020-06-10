@@ -80,7 +80,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel
 
     private void AleatorizarChefe()
     {
-        int gerarTipoZumbi = Random.Range(1, transform.childCount); 
+        int gerarTipoZumbi = Random.Range(1, transform.childCount - 1); 
         transform.GetChild(gerarTipoZumbi).gameObject.SetActive(true);
     }
 

@@ -32,5 +32,6 @@ _**A versão jogavel é a realizada até o dia 15 no diário abaixo.**_
 - Dia 14: Foi criado um chefe da fase.
 - Dia 15: Foi criado o gerador de chefe da fase.
 - Dia 16: Foi criado a interface de vida do chefe.
+- Dia 17: Foi melhorado a qualidade do gerador do chefe.
 
 *Marcelo T. Ferreira*

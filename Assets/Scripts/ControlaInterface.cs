@@ -12,6 +12,7 @@ public class ControlaInterface : MonoBehaviour
     public Text TextoTempoSobrevivencia;
     public Text TextoTempoMaximoSobrevivencia;
     public Text TextoQtZumbiMortos;
+    public Text TextoChefe;
     private float tempoPontuacaoSalvo;
     private ControlaJogador scriptControlaJogador;
     private int qtZumbiMortos;
@@ -101,5 +102,32 @@ public class ControlaInterface : MonoBehaviour
     {
         TextoQtZumbiMortos.gameObject.SetActive(true);
         TextoQtZumbiMortos.text = string.Format("x {0}", qtZumbiMortos.ToString());
+    }
+
+    public void AparecerTextoChefeCriado()
+    {
+        StartCoroutine(DesaparecerTexto(2, TextoChefe));
+    }
+
+    private IEnumerator DesaparecerTexto(float tempo, Text texto)
+    {
+        texto.gameObject.SetActive(true);
+        Color corTexto = texto.color;
+        corTexto.a = 1;
+        texto.color = corTexto;
+        yield return new WaitForSeconds(tempo);
+        float contador = 0;
+        while(texto.color.a > 0)
+        {
+            contador += Time.deltaTime / tempo;
+            corTexto.a = Mathf.Lerp(1, 0, contador);
+            texto.color = corTexto;
+            if(texto.color.a <= 0)
+            {
+                texto.gameObject.SetActive(false);
+            }
+            yield return null;
+        }
+
     }
 }
