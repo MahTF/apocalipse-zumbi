@@ -12,7 +12,7 @@ Você pode baixar o projeto por aqui ou rodar uma versão dele online [clicando 
 
 Neste jogo, você é o jogador principal onde se encontra num estacionamento de hotel tentando eliminar o maior número de inimigos que consegui que vão surgindo pelo mapa. Sinta-se a vontade para compartilhar suas opiniões. 
 
-_**A versão jogavel é a realizada até o dia 18 no diário abaixo.**_
+_**A versão jogavel é a realizada até o dia 19 no diário abaixo.**_
 
 #### Diário
 
@@ -34,5 +34,6 @@ _**A versão jogavel é a realizada até o dia 18 no diário abaixo.**_
 - Dia 16: Foi criado a interface de vida do chefe.
 - Dia 17: Foi melhorado a qualidade do gerador do chefe.
 - Dia 18: Foi criado o menu do jogo.
+- Dia 19: Foi criado partículas de fogo e sangue dos zumbis.
 
 *Marcelo T. Ferreira*

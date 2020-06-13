@@ -644,6 +644,9 @@ MonoBehaviour:
   Jogador: {fileID: 0}
   SomMorte: {fileID: 8300000, guid: 0b6ff5e6c35053a489e8094bab92c1e3, type: 3}
   KitMedico: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
+  ParticulaSangueZumbi: {fileID: 5983127516234076697, guid: 2bc8d32d2dbe9404bb050c4545e7ffc7,
+    type: 3}
+  meuGerador: {fileID: 0}
 --- !u!54 &1151200499318440918
 Rigidbody:
   m_ObjectHideFlags: 0

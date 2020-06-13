@@ -11,6 +11,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel
     public Slider SliderVidaChefe;
     public Image ImagemSlider;
     public Color CorVidaMaxima, CorVidaMinima;
+    public GameObject ParticulaSangueChefe;
     private Transform jogador;
     private NavMeshAgent agente;
     private Status statusChefe;
@@ -76,6 +77,11 @@ public class ControlaChefe : MonoBehaviour, IMatavel
         ControlaAudio.Instancia.PlayOneShot(SomMorte);
         Destroy(gameObject, 2);
         Instantiate(KitMedico, transform.position, Quaternion.identity);
+    }
+
+    public void ParticulaSangue(Vector3 posicao, Quaternion rotacao)
+    {
+        Instantiate(ParticulaSangueChefe, posicao, rotacao);
     }
 
     private void AleatorizarChefe()

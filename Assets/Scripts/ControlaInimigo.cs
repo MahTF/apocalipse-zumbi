@@ -7,6 +7,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     public GameObject Jogador;
     public AudioClip SomMorte;
     public GameObject KitMedico;
+    public GameObject ParticulaSangueZumbi;
     [HideInInspector]
     public GeradorZumbi meuGerador;
     protected ControlaInterface scriptControlaInterface;
@@ -93,6 +94,11 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
         scriptControlaInterface.AtualizarQtZumbiMortos();
         meuGerador.DiminuirQtZumbiVivos();
+    }
+
+    public void ParticulaSangue(Vector3 posicao, Quaternion rotacao)
+    {
+        Instantiate(ParticulaSangueZumbi, posicao, rotacao);
     }
 
     private void Vagar()
